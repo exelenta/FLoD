@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>활동 신청 정보 편집기</title>
   <meta name="description" content="모바일 활동 신청 화면의 모든 텍스트를 직접 편집합니다.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f3746'/%3E%3Cpath d='M8 23l2-6L21 6l5 5-11 11-7 1z' fill='white'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#f4f5f7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="FLoD">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
   <style>
     *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#f4f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#343d4e;-webkit-text-size-adjust:100%}
     body{display:grid;place-items:start center;overflow-x:hidden}
@@ -63,6 +69,7 @@
       el.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();el.blur()}});
       el.addEventListener('paste',e=>{e.preventDefault();document.execCommand('insertText',false,e.clipboardData.getData('text/plain'))});
     });
+    if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'))}
   </script>
 </body>
 </html>
